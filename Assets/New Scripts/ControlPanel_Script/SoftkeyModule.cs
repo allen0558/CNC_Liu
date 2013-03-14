@@ -78,6 +78,17 @@ public class SoftkeyModule : MonoBehaviour {
 						Main.ProgEDITFlip = 1;
 					else if(Main.ProgEDITFlip == 3)
 						Main.ProgEDITFlip = 2;
+					//内容--程序编辑界面下，程序底部按钮有8种显示方式，因此ProgEDITFlip的值由0到7，在向前翻页按钮命令下，ProgEDITFlip的变化如下
+					//姓名--刘旋
+					//日期2013-3-14
+					else if (Main.ProgEDITFlip==4)
+				        Main.ProgEDITFlip=3;
+			        else if (Main.ProgEDITFlip==5)
+				        Main.ProgEDITFlip=2;
+			        else if (Main.ProgEDITFlip==6)
+				        Main.ProgEDITFlip=5;
+			        else if (Main.ProgEDITFlip==7)
+				        Main.ProgEDITFlip=2;//变化内容到此
 				}
 				if(Main.ProgEDITList)
 				{
@@ -132,11 +143,30 @@ public class SoftkeyModule : MonoBehaviour {
 			if(Main.ProgEDIT)
 			{
 				//程序
-				if(Main.ProgEDITFlip == 0)
+				//内容--程序和列表菜单下，第一个按钮有不同的功能，因此要分情况定义
+				//姓名--刘旋
+				//日期2013-3-14
+				if(Main.ProgEDITProg)
 				{
-					Main.ProgEDITProg = true;
-					Main.ProgEDITList = false;
+					if (Main.ProgEDITFlip==2)
+				       Main.ProgEDITFlip=3;
+			       else if (Main.ProgEDITFlip==3)   
+				       Main.ProgEDITFlip=2;
+		           else if (Main.ProgEDITFlip==5)
+				       Main.ProgEDITFlip=2;
+					
+					
 				}
+				if(Main.ProgEDITList)
+				{//变化的内容到此
+					if(Main.ProgEDITFlip == 0)
+				     {
+					 Main.ProgEDITProg = true;
+					 Main.ProgEDITList = false;
+				     }
+				}
+				
+				
 			}
 		}
 		//设置界面时按下
@@ -176,6 +206,30 @@ public class SoftkeyModule : MonoBehaviour {
 		{
 			if(Main.ProgEDIT)
 			{
+				//内容--程序菜单下，第二个按钮也是有功能的
+				//姓名--刘旋
+				//日期2013-3-14
+				if(Main.ProgEDITProg)
+				{
+					if (Main.ProgEDITFlip==2)
+				       Main.ProgEDITFlip=5;
+					else if (Main.ProgEDITFlip==0)
+					{
+						Main.ProgEDITList=true;
+						Main.ProgEDITProg=false ;
+						
+					}
+					
+				       
+					
+				}
+				
+				
+				
+				if(Main.ProgEDITList)
+				{//变化内容到此
+					
+					
 				if(Main.ProgEDITFlip == 0)
 				{
 					//列表
@@ -526,6 +580,7 @@ public class SoftkeyModule : MonoBehaviour {
 			}
 		}
 		}
+		}
 		
 		if(Main.SettingMenu)
 		{
@@ -559,6 +614,31 @@ public class SoftkeyModule : MonoBehaviour {
 		//程序界面时按下
 		if(Main.ProgMenu)
 		{
+			//程序界面下，第三个按钮功能的增加
+			//姓名--刘旋
+		   //日期2013-3-14
+			if(Main.ProgEDIT)
+			{
+				if(Main.ProgEDITProg)
+				{
+					
+					
+				}
+				
+				if(Main.ProgEDITList)
+				{
+					
+					
+				}
+				
+				
+			}//变化内容到此
+			
+			
+			
+			
+			
+			
 				
 		}
 		//设置界面时按下
@@ -631,6 +711,13 @@ public class SoftkeyModule : MonoBehaviour {
 				{
 					if(Main.ProgEDITFlip == 0)
 						Main.ProgEDITFlip = 1;
+					//内容--增加第五个按钮的功能
+					//姓名--刘旋
+					//日期--2013-3-14
+					else if (Main.ProgEDITFlip==2)
+				           Main.ProgEDITFlip=7;//变化内容到此
+					
+					
 				}
 				if(Main.ProgEDITList)
 				{
@@ -683,7 +770,19 @@ public class SoftkeyModule : MonoBehaviour {
 					if(Main.ProgEDITFlip == 1)	
 						Main.ProgEDITFlip = 2;
 					else if(Main.ProgEDITFlip == 2)
-						Main.ProgEDITFlip = 3;
+						Main.ProgEDITFlip = 0;//内容--修改内容，把3改为0，姓名--刘旋，日期--2013-3-14
+					//内容--增加向下翻页按钮的功能
+					//姓名--刘旋
+					//日期--2013-3-14
+					else if (Main.ProgEDITFlip==3)
+				         Main.ProgEDITFlip=4;
+			        else if (Main.ProgEDITFlip==4)
+				         Main.ProgEDITFlip=2;
+			        else if (Main.ProgEDITFlip==5)
+				         Main.ProgEDITFlip=6;
+		            else if (Main.ProgEDITFlip==6)
+				         Main.ProgEDITFlip=2;//变化内容到此
+					
 				}
 				
 				if(Main.ProgEDITList)
@@ -709,6 +808,7 @@ public class SoftkeyModule : MonoBehaviour {
 			if(Main.OffSetCoo)
 			{
 				if(Main.OffSetOne)
+					
 				{
 					Main.OffSetTwo = true;
 					Main.OffSetOne = false;
