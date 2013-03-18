@@ -204,7 +204,9 @@ public class ControlPanel : MonoBehaviour {
 	public int ProgUsedNum = 0;
 	public int ProgUnusedNum = 400;
 	public int ProgUsedSpace = 0;
-	public int ProgUnusedSpace = 419430400;
+	//内容--内存总容量为512K，姓名--刘旋，时间--2013-3-18
+	public int ProgUnusedSpace = 512;//将419430400修改为512
+	
 	public float ProgEDITCusor = 0;
 	public float ProgEDITCusorV = 0;
 	public float ProgEDITCusorH = 0;
@@ -301,6 +303,13 @@ public class ControlPanel : MonoBehaviour {
 	public bool power_notification = true;
 	Rect power_notifi_window = new Rect(Screen.width / 2f, Screen.height / 2f, 200f, 100f); 
 	public float move_rate = 1f;
+	
+    //内容--姓名--日期
+	//变量
+	//内容--定义布尔变量ProgEDITAt，用于选择程序时，前加@
+	//姓名--刘旋
+	//日期--2013-3-18
+	public bool ProgEDITAt=false;
 	
 	
 	void Awake () 
