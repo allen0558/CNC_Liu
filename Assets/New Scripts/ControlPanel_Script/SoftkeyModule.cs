@@ -89,6 +89,8 @@ public class SoftkeyModule : MonoBehaviour {
 				        Main.ProgEDITFlip=5;
 			        else if (Main.ProgEDITFlip==7)
 				        Main.ProgEDITFlip=2;//变化内容到此
+					else if(Main.ProgEDITFlip==8)
+						Main.ProgEDITFlip=4;
 				}
 				if(Main.ProgEDITList)
 				{
@@ -154,6 +156,8 @@ public class SoftkeyModule : MonoBehaviour {
 				       Main.ProgEDITFlip=2;
 		           else if (Main.ProgEDITFlip==5)
 				       Main.ProgEDITFlip=2;
+				   else if ((Main.ProgEDITFlip==6)||(Main.ProgEDITFlip==4))//内容--增加程序底部按钮显示“8”，用于实现“替换”功能，姓名--刘旋，时间--2013-3-20
+						Main.ProgEDITFlip=8;
 					
 					
 				}
@@ -342,6 +346,104 @@ public class SoftkeyModule : MonoBehaviour {
 					//O检索
 					if(Main.ProgEDITList)
 					{
+							if ((Main.InputText.Length <6)&&(Main.InputText.Length>1))//内容--MDI键盘输入程序名称，按下“O检索”，实现对程序的选择，姓名--刘旋，时间--2013-3-20
+							{   
+								
+								if (Main.InputText[0]!='O')
+								{
+									Main.InputText="";
+									Main .ProgEDITCusorPos=57f;
+								}
+								
+								else 
+								{
+								char[] temp_name=Main.InputText.ToCharArray ();
+								bool normal_flag=true;
+								for(int j=0;j<temp_name.Length ;j++)
+								{
+									if(temp_name[j] == 'O' || (temp_name[j] >= '0' && temp_name[j] <= '9'))
+									    continue;
+								    else
+								       {
+									      normal_flag = false;
+									      break;
+								       }
+								}
+									if(normal_flag)
+									{
+										int inputname = Convert.ToInt32(Main.InputText.Trim('O'));
+										String tempinput_name=Main.ToolNumFormat(inputname);
+										String input_name='O'+tempinput_name;
+										int m=0;
+										while(input_name!=Main.FileNameList[m])
+									{
+										m++;
+									}
+									Main.RealListNum=m+1;
+									Main.ProgramNum = Convert.ToInt32(Main.FileNameList[Main.RealListNum - 1].Trim('O'));
+									if (Main.ProgEDITFlip==0)
+										Main.ProgEDITFlip=1;
+									Main.ProgEDITCusor = 175f;
+									Main.ProgEDITAt=true;
+									int finalnum=Main.RealListNum+8;
+									if(finalnum >Main.TotalListNum)
+										finalnum=Main.TotalListNum;
+									string[] InputNameArray = new string[8];
+							        int[] InputSizeArray = new int[8];
+							        string[] InputDateArray = new string[8];
+							        for(int i = 0; i < 8; i++)
+							        {
+								      InputNameArray[i] = "";
+								      InputSizeArray[i] = 0;
+								      InputDateArray[i] = "";
+							        }
+							        int MiddleNum = -1;
+							        for(int i = Main.RealListNum; i < finalnum ; i++)
+							        {
+								       MiddleNum++;
+								       InputNameArray[MiddleNum] = Main.FileNameList[i-1];	
+								       InputSizeArray[MiddleNum] = Main.FileSizeList[i-1];
+								       InputDateArray[MiddleNum] = Main.FileDateList[i-1];
+							        }
+							
+							Main.CodeName01 = InputNameArray[0];
+							Main.CodeName02 = InputNameArray[1];
+							Main.CodeName03 = InputNameArray[2];
+							Main.CodeName04 = InputNameArray[3];
+							Main.CodeName05 = InputNameArray[4];
+							Main.CodeName06 = InputNameArray[5];
+							Main.CodeName07 = InputNameArray[6];
+							Main.CodeName08 = InputNameArray[7];
+							
+							Main.CodeSize01 = InputSizeArray[0];
+							Main.CodeSize02 = InputSizeArray[1];
+							Main.CodeSize03 = InputSizeArray[2];
+							Main.CodeSize04 = InputSizeArray[3];
+							Main.CodeSize05 = InputSizeArray[4];
+							Main.CodeSize06 = InputSizeArray[5];
+							Main.CodeSize07 = InputSizeArray[6];
+							Main.CodeSize08 = InputSizeArray[7];
+							
+							Main.UpdateDate01 = InputDateArray[0];
+							Main.UpdateDate02 = InputDateArray[1];
+							Main.UpdateDate03 = InputDateArray[2];
+							Main.UpdateDate04 = InputDateArray[3];
+							Main.UpdateDate05 = InputDateArray[4];
+							Main.UpdateDate06 = InputDateArray[5];
+							Main.UpdateDate07 = InputDateArray[6];
+							Main.UpdateDate08 = InputDateArray[7];
+										
+										
+									}
+								Main.InputText="";
+						        Main.ProgEDITCusorPos = 57f;	
+								}
+							}
+						else
+					   {	
+								
+						Main.InputText="";
+						Main.ProgEDITCusorPos=57f;//增加内容到此			
 						if(Main.FileNameList.Count == 0)
 							Debug.Log("No files in the memory now!");
 						else
@@ -406,7 +508,7 @@ public class SoftkeyModule : MonoBehaviour {
 							}
 							else	
 								Debug.Log("Program name is ilegal!");
-						}
+						}}
 					}
 					else
 					{
@@ -782,6 +884,8 @@ public class SoftkeyModule : MonoBehaviour {
 				         Main.ProgEDITFlip=6;
 		            else if (Main.ProgEDITFlip==6)
 				         Main.ProgEDITFlip=2;//变化内容到此
+					else if (Main.ProgEDITFlip==8)
+				         Main.ProgEDITFlip=0;
 					
 				}
 				

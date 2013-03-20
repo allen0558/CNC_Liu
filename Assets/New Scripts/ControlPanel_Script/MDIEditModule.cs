@@ -1,7 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.IO;//内容--增加文件IO功能，姓名--刘旋，时间--2013-3-20
 
 public class MDIEditModule : MonoBehaviour {
 	ControlPanel Main;
@@ -2516,6 +2517,8 @@ public class MDIEditModule : MonoBehaviour {
 						{
 							if(Main.InputText.Length<=5)
 							{
+								if(Main.InputText.Length>1)//内容--当MDI键盘输入“O”时，再按下“向下”按钮，直接打开下一个程序,姓名--刘旋,时间--2013-3-20
+								{
 								char[] temp_name=Main.InputText.ToCharArray ();
 								bool normal_flag=true;
 								for(int j=0;j<temp_name.Length ;j++)
@@ -2594,13 +2597,70 @@ public class MDIEditModule : MonoBehaviour {
 										
 										
 									}
-								
+								Main.InputText="";
+						        Main.ProgEDITCusorPos = 57f;
 								
 							}	
+								
+							else
+						{//内容--MDI键盘输入“O”，再按下“向下”按钮，直接打开下一个程序,姓名--刘旋,时间--2013-3-20
+							if (Main.RealListNum<Main.TotalListNum)
+								Main.RealListNum++;
+							
+						
+									Main.ProgramNum = Convert.ToInt32(Main.FileNameList[Main.RealListNum - 1].Trim('O'));
+									Main.current_filenum = Main.RealListNum;
+									Main.current_filename = Main.FileNameList[Main.RealListNum - 1].ToString();
+									Main.ProgEDITProg = true;
+									Main.ProgEDITList = false;
+									Main.CodeForAll.Clear();
+									Main.RealCodeNum = 1;
+									Main.HorizontalNum = 1;
+									Main.VerticalNum = 1;
+									string S_Line = "";
+									FileStream faceInfoFile;
+									FileInfo ExistCheck = new FileInfo(Application.dataPath + "/Resources/Gcode/" + Main.FileNameList[Main.RealListNum - 1] + ".txt");
+									if(ExistCheck.Exists)	
+										faceInfoFile = new FileStream(Application.dataPath + "/Resources/Gcode/" + Main.FileNameList[Main.RealListNum - 1] + ".txt", FileMode.Open, FileAccess.Read);
+									else 
+									{
+										ExistCheck = new FileInfo(Application.dataPath + "/Resources/Gcode/" + Main.FileNameList[Main.RealListNum - 1] + ".cnc");
+										if(ExistCheck.Exists)
+											faceInfoFile = new FileStream(Application.dataPath + "/Resources/Gcode/" + Main.FileNameList[Main.RealListNum - 1] + ".cnc", FileMode.Open, FileAccess.Read);
+										else
+											faceInfoFile = new FileStream(Application.dataPath + "/Resources/Gcode/" + Main.FileNameList[Main.RealListNum - 1] + ".nc", FileMode.Open, FileAccess.Read);
+									}
+									StreamReader s_R = new StreamReader(faceInfoFile);
+									S_Line =s_R .ReadLine();
+									while(S_Line != null)
+									{
+										Main.CodeForAll.Add(S_Line.ToUpper().Trim().Trim(';', '；'));
+										S_Line = s_R.ReadLine();
+									}
+									s_R.Close();
+									if(Main.CodeForAll[Main.CodeForAll.Count - 1] == "")
+										Main.CodeForAll.RemoveAt(Main.CodeForAll.Count - 1);
+									Main.TotalCodeNum = Main.CodeForAll.Count;
+									CodeEdit();
+									Main.ProgEDITCusorH = 32f;
+									Main.ProgEDITCusorV = 100f;
+									Main.EDITText.text = Main.TempCodeList[0][0];
+									Main.TextSize = Main.sty_EDITTextField.CalcSize(new GUIContent(Main.EDITText.text));
+							        Main.InputText="";
+						            Main.ProgEDITCusorPos = 57f;	
+							
+								}//增加内容到此
+								
 						}	
-						Main.InputText="";
-						Main.ProgEDITCusorPos = 57f;
+						
+					}
+					
+						
+						
 					}//增加内容到此
+					
+					
+					
 				}	
 			}
 		}
