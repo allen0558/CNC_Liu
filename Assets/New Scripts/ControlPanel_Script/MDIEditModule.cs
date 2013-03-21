@@ -1702,7 +1702,7 @@ public class MDIEditModule : MonoBehaviour {
 					
 					if(Main.ProgEDITFlip == 0)
 						Main.ProgEDITFlip = 1;
-					int CurrentPage = (Main.RealListNum - 1) / 8;
+					int CurrentPage = (Main.RealListNum -1) / 8;
 					if(CurrentPage > 0)	
 						CurrentPage--;
 					Main.ProgEDITCusor = 175f;	
@@ -2265,103 +2265,102 @@ public class MDIEditModule : MonoBehaviour {
 				}
 				
 				//O检索时
-				if(Main.ProgEDITList)
-				{
+				//if(Main.ProgEDITList)
+				//{
 					
 					//内容--按下向上按钮对程序进行选择时，在被选程序前加@
 					//姓名--刘旋
 					//时间--2013-3-18
-					Main.ProgEDITAt=true;
+					//Main.ProgEDITAt=true;
 					//增加内容到此
 					
 					
-					if(Main.ProgEDITFlip == 0 && Main.RealListNum != 1)
-						Main.ProgEDITFlip = 1;
-					switch((int)Main.ProgEDITCusor)
-					{
-					case 175:
-						if(Main.RealListNum > 1)
-						{
-							Main.RealListNum--;
-							string[] TempNameArray = new string[8];
-							int[] TempSizeArray = new int[8];
-							string[] TempDateArray = new string[8];
-							for(int i = 0; i < 8; i++)
-							{
-								TempNameArray[i] = "";
-								TempSizeArray[i] = 0;
-								TempDateArray[i] = "";
-							}
-							int MiddleNum = -1;
-							int FinalNum = Main.RealListNum + 7;
-							if(FinalNum > Main.TotalListNum)
-								FinalNum = Main.TotalListNum;
-							for(int i = Main.RealListNum - 1; i < FinalNum; i++)
-							{
-								MiddleNum++;
-								TempNameArray[MiddleNum] = Main.FileNameList[i];
-								TempSizeArray[MiddleNum] = Main.FileSizeList[i];
-								TempDateArray[MiddleNum] = Main.FileDateList[i];
-							}
+					//if(Main.ProgEDITFlip == 0 && Main.RealListNum != 1)
+						//Main.ProgEDITFlip = 1;
+					//switch((int)Main.ProgEDITCusor)
+					//{
+					//case 175:
+						//if(Main.RealListNum > 1)
+						//{
+							//Main.RealListNum--;
+							//string[] TempNameArray = new string[8];
+							//int[] TempSizeArray = new int[8];
+							//string[] TempDateArray = new string[8];
+							//for(int i = 0; i < 8; i++)
+							//{
+							//	TempNameArray[i] = "";
+							//	TempSizeArray[i] = 0;
+							//	TempDateArray[i] = "";
+							//}
+							//int MiddleNum = -1;
+							//int FinalNum = Main.RealListNum + 7;
+							//if(FinalNum > Main.TotalListNum)
+								//FinalNum = Main.TotalListNum;
+							//for(int i = Main.RealListNum - 1; i < FinalNum; i++)
+							//{
+								//MiddleNum++;
+								//TempNameArray[MiddleNum] = Main.FileNameList[i];
+								//TempSizeArray[MiddleNum] = Main.FileSizeList[i];
+								//TempDateArray[MiddleNum] = Main.FileDateList[i];
+							//}
 							
-							Main.CodeName01 = TempNameArray[0];
-							Main.CodeName02 = TempNameArray[1];
-							Main.CodeName03 = TempNameArray[2];
-							Main.CodeName04 = TempNameArray[3];
-							Main.CodeName05 = TempNameArray[4];
-							Main.CodeName06 = TempNameArray[5];
-							Main.CodeName07 = TempNameArray[6];
-							Main.CodeName08 = TempNameArray[7];
+							//Main.CodeName01 = TempNameArray[0];
+							//Main.CodeName02 = TempNameArray[1];
+							//Main.CodeName03 = TempNameArray[2];
+							//Main.CodeName04 = TempNameArray[3];
+							//Main.CodeName05 = TempNameArray[4];
+							//Main.CodeName06 = TempNameArray[5];
+							//Main.CodeName07 = TempNameArray[6];
+							//Main.CodeName08 = TempNameArray[7];
 							
-							Main.CodeSize01 = TempSizeArray[0];
-							Main.CodeSize02 = TempSizeArray[1];
-							Main.CodeSize03 = TempSizeArray[2];
-							Main.CodeSize04 = TempSizeArray[3];
-							Main.CodeSize05 = TempSizeArray[4];
-							Main.CodeSize06 = TempSizeArray[5];
-							Main.CodeSize07 = TempSizeArray[6];
-							Main.CodeSize08 = TempSizeArray[7];
+							//Main.CodeSize01 = TempSizeArray[0];
+							//Main.CodeSize02 = TempSizeArray[1];
+							//Main.CodeSize03 = TempSizeArray[2];
+							//Main.CodeSize04 = TempSizeArray[3];
+							//Main.CodeSize05 = TempSizeArray[4];
+							//Main.CodeSize06 = TempSizeArray[5];
+							//Main.CodeSize07 = TempSizeArray[6];
+							//Main.CodeSize08 = TempSizeArray[7];
 							
-							Main.UpdateDate01 = TempDateArray[0];
-							Main.UpdateDate02 = TempDateArray[1];
-							Main.UpdateDate03 = TempDateArray[2];
-							Main.UpdateDate04 = TempDateArray[3];
-							Main.UpdateDate05 = TempDateArray[4];
-							Main.UpdateDate06 = TempDateArray[5];
-							Main.UpdateDate07 = TempDateArray[6];
-							Main.UpdateDate08 = TempDateArray[7];
-						}
-						break;
-					case 195:
-						Main.RealListNum--;
-						Main.ProgEDITCusor = 175f;
-						break;
-					case 215:
-						Main.RealListNum--;
-						Main.ProgEDITCusor = 195f;
-						break;
-					case 235:
-						Main.RealListNum--;
-						Main.ProgEDITCusor = 215f;
-						break;
-					case 255:
-						Main.RealListNum--;
-						Main.ProgEDITCusor = 235f;
-						break;	
-					case 275:
-						Main.RealListNum--;
-						Main.ProgEDITCusor = 255f;
-						break;
-					case 295:
-						Main.RealListNum--;
-						Main.ProgEDITCusor = 275f;
-						break;
-					case 315:
-						Main.RealListNum--;
-						Main.ProgEDITCusor = 295f;
-						break;
-					}
-				}
+							//Main.UpdateDate01 = TempDateArray[0];
+							//Main.UpdateDate02 = TempDateArray[1];
+							//Main.UpdateDate03 = TempDateArray[2];
+							//Main.UpdateDate04 = TempDateArray[3];
+							//Main.UpdateDate05 = TempDateArray[4];
+							//Main.UpdateDate06 = TempDateArray[5];
+							//Main.UpdateDate07 = TempDateArray[6];
+							//Main.UpdateDate08 = TempDateArray[7];
+						//}
+						//break;
+					//case 195:
+						//Main.RealListNum--;
+						//Main.ProgEDITCusor = 175f;
+						//break;
+					//case 215:
+						//Main.ProgEDITCusor = 195f;
+						//break;
+					//case 235:
+						//Main.RealListNum--;
+						//Main.ProgEDITCusor = 215f;
+						//break;
+					//case 255:
+						//Main.RealListNum--;
+						//Main.ProgEDITCusor = 235f;
+						//break;	
+					//case 275:
+						//Main.RealListNum--;
+						//Main.ProgEDITCusor = 255f;
+						//break;
+					//case 295:
+						//Main.RealListNum--;
+						//Main.ProgEDITCusor = 275f;
+						//break;
+					//case 315:
+						//Main.RealListNum--;
+						//Main.ProgEDITCusor = 295f;
+						//break;
+					//}
+				//}
 			}
 		}
 		
@@ -2394,125 +2393,125 @@ public class MDIEditModule : MonoBehaviour {
 				//O检索时
 				if(Main.ProgEDITList)
 				{
-					if(Main.InputText=="")//MDI键盘输入为空,姓名--刘旋,时间--2013-3-18
-					{
+					//if(Main.InputText=="")//MDI键盘输入为空,姓名--刘旋,时间--2013-3-18
+					//{
 					
 					//内容--按下向下按钮对程序进行选择时，在被选程序前加@
 					//姓名--刘旋
 					//时间--2013-3-18
-					Main.ProgEDITAt=true;
+					//Main.ProgEDITAt=true;
 					//增加内容到此
 					
-					if(Main.ProgEDITFlip == 0)
-						Main.ProgEDITFlip = 1;	
-					switch((int)Main.ProgEDITCusor)
-					{
-					case 175:
-						if(Main.CodeName01 != "")
-						{
-							if(Main.TotalListNum > Main.RealListNum)
-							{
-								Main.RealListNum++;
-								Main.ProgEDITCusor = 195f;
-							}
-						}
-						break;		
-					case 195:
-						if(Main.TotalListNum > Main.RealListNum)
-						{
-							Main.RealListNum++;
-							Main.ProgEDITCusor = 215f;
-						}
-						break;
-					case 215:
-						if(Main.TotalListNum > Main.RealListNum)
-						{
-							Main.RealListNum++;
-							Main.ProgEDITCusor = 235f;
-						}
-						break;
-					case 235:
-						if(Main.TotalListNum > Main.RealListNum)
-						{
-							Main.RealListNum++;
-							Main.ProgEDITCusor = 255f;
-						}
-						break;
-					case 255:
-						if(Main.TotalListNum > Main.RealListNum)
-						{
-							Main.RealListNum++;
-							Main.ProgEDITCusor = 275f;
-						}
-						break;
-					case 275:
-						if(Main.TotalListNum > Main.RealListNum)
-						{
-							Main.RealListNum++;
-							Main.ProgEDITCusor = 295f;
-						}
-						break;
-					case 295:
-						if(Main.TotalListNum > Main.RealListNum)
-						{
-							Main.RealListNum++;
-							Main.ProgEDITCusor = 315f;
-						}
-						break;
-					case 315:
-						if(Main.TotalListNum > Main.RealListNum)
-						{
-							Main.RealListNum++;
-							string[] TempNameArray = new string[8];
-							int[] TempSizeArray = new int[8];
-							string[] TempDateArray = new string[8];
-							for(int i = 0; i < 8; i++)
-							{
-								TempNameArray[i] = "";
-								TempSizeArray[i] = 0;
-								TempDateArray[i] = "";
-							}
-							int MiddleNum = -1;
-							for(int i = Main.RealListNum - 8; i < Main.RealListNum; i++)
-							{
-								MiddleNum++;
-								TempNameArray[MiddleNum] = Main.FileNameList[i];	
-								TempSizeArray[MiddleNum] = Main.FileSizeList[i];
-								TempDateArray[MiddleNum] = Main.FileDateList[i];
-							}
+					//if(Main.ProgEDITFlip == 0)
+						//Main.ProgEDITFlip = 1;	
+					//switch((int)Main.ProgEDITCusor)
+					//{
+					//case 175:
+						//if(Main.CodeName01 != "")
+						//{
+							//if(Main.TotalListNum > Main.RealListNum)
+							//{
+								//Main.RealListNum++;
+								//Main.ProgEDITCusor = 195f;
+							//}
+						//}
+						//break;		
+					//case 195:
+						//if(Main.TotalListNum > Main.RealListNum)
+						//{
+							//Main.RealListNum++;
+							//Main.ProgEDITCusor = 215f;
+						//}
+						//break;
+					//case 215:
+						//if(Main.TotalListNum > Main.RealListNum)
+						//{
+							//Main.RealListNum++;
+							//Main.ProgEDITCusor = 235f;
+						//}
+						//break;
+					//case 235:
+						//if(Main.TotalListNum > Main.RealListNum)
+						//{
+							//Main.RealListNum++;
+							//Main.ProgEDITCusor = 255f;
+						//}
+						//break;
+					//case 255:
+						//if(Main.TotalListNum > Main.RealListNum)
+						//{
+							//Main.RealListNum++;
+							//Main.ProgEDITCusor = 275f;
+						//}
+						//break;
+					//case 275:
+						//if(Main.TotalListNum > Main.RealListNum)
+						//{
+							//Main.RealListNum++;
+							//Main.ProgEDITCusor = 295f;
+						//}
+						//break;
+					//case 295:
+						//if(Main.TotalListNum > Main.RealListNum)
+						//{
+							//Main.RealListNum++;
+							//Main.ProgEDITCusor = 315f;
+						//}
+						//break;
+					//case 315:
+						//if(Main.TotalListNum > Main.RealListNum)
+						//{
+							//Main.RealListNum++;
+							//string[] TempNameArray = new string[8];
+							//int[] TempSizeArray = new int[8];
+							//string[] TempDateArray = new string[8];
+							//for(int i = 0; i < 8; i++)
+							//{
+								//TempNameArray[i] = "";
+								//TempSizeArray[i] = 0;
+								//TempDateArray[i] = "";
+							//}
+							//int MiddleNum = -1;
+							//for(int i = Main.RealListNum - 8; i < Main.RealListNum; i++)
+							//{
+								//MiddleNum++;
+								//TempNameArray[MiddleNum] = Main.FileNameList[i];	
+								//TempSizeArray[MiddleNum] = Main.FileSizeList[i];
+								//TempDateArray[MiddleNum] = Main.FileDateList[i];
+							//}
 							
-							Main.CodeName01 = TempNameArray[0];
-							Main.CodeName02 = TempNameArray[1];
-							Main.CodeName03 = TempNameArray[2];
-							Main.CodeName04 = TempNameArray[3];
-							Main.CodeName05 = TempNameArray[4];
-							Main.CodeName06 = TempNameArray[5];
-							Main.CodeName07 = TempNameArray[6];
-							Main.CodeName08 = TempNameArray[7];
+							//Main.CodeName01 = TempNameArray[0];
+							//Main.CodeName02 = TempNameArray[1];
+							//Main.CodeName03 = TempNameArray[2];
+							//Main.CodeName04 = TempNameArray[3];
+							//Main.CodeName05 = TempNameArray[4];
+							//Main.CodeName06 = TempNameArray[5];
+							//Main.CodeName07 = TempNameArray[6];
+							//Main.CodeName08 = TempNameArray[7];
 							
-							Main.CodeSize01 = TempSizeArray[0];
-							Main.CodeSize02 = TempSizeArray[1];
-							Main.CodeSize03 = TempSizeArray[2];
-							Main.CodeSize04 = TempSizeArray[3];
-							Main.CodeSize05 = TempSizeArray[4];
-							Main.CodeSize06 = TempSizeArray[5];
-							Main.CodeSize07 = TempSizeArray[6];
-							Main.CodeSize08 = TempSizeArray[7];
+							//Main.CodeSize01 = TempSizeArray[0];
+							//Main.CodeSize02 = TempSizeArray[1];
+							//Main.CodeSize03 = TempSizeArray[2];
+							//Main.CodeSize04 = TempSizeArray[3];
+							//Main.CodeSize05 = TempSizeArray[4];
+							//Main.CodeSize06 = TempSizeArray[5];
+							//Main.CodeSize07 = TempSizeArray[6];
+							//Main.CodeSize08 = TempSizeArray[7];
 							
-							Main.UpdateDate01 = TempDateArray[0];
-							Main.UpdateDate02 = TempDateArray[1];
-							Main.UpdateDate03 = TempDateArray[2];
-							Main.UpdateDate04 = TempDateArray[3];
-							Main.UpdateDate05 = TempDateArray[4];
-							Main.UpdateDate06 = TempDateArray[5];
-							Main.UpdateDate07 = TempDateArray[6];
-							Main.UpdateDate08 = TempDateArray[7];
-						}
-						break;
-					}
-				}
-					else //MDI键盘输入不为空,MDI键盘输入程序名称，再按向下按钮实现程序选择,姓名--刘旋,时间--2013-3-18
-					{
+							//Main.UpdateDate01 = TempDateArray[0];
+							//Main.UpdateDate02 = TempDateArray[1];
+							//Main.UpdateDate03 = TempDateArray[2];
+							//Main.UpdateDate04 = TempDateArray[3];
+							//Main.UpdateDate05 = TempDateArray[4];
+							//Main.UpdateDate06 = TempDateArray[5];
+							//Main.UpdateDate07 = TempDateArray[6];
+							//Main.UpdateDate08 = TempDateArray[7];
+						//}
+						//break;
+					//}
+				//}
+					//else //MDI键盘输入不为空,MDI键盘输入程序名称，再按向下按钮实现程序选择,姓名--刘旋,时间--2013-3-18
+					//{
 						if(Main.InputText[0]=='O')
 						{
 							if(Main.InputText.Length<=5)
@@ -2538,16 +2537,50 @@ public class MDIEditModule : MonoBehaviour {
 										String input_name='O'+tempinput_name;
 										int m=0;
 										while(input_name!=Main.FileNameList[m])
-									{
-										m++;
-									}
+									     {
+										    m++;
+									     }
 									Main.RealListNum=m+1;
 									Main.ProgramNum = Convert.ToInt32(Main.FileNameList[Main.RealListNum - 1].Trim('O'));
 									if (Main.ProgEDITFlip==0)
 										Main.ProgEDITFlip=1;
-									Main.ProgEDITCusor = 175f;
+									//内容--对于某一程序号，只在特定的位置显示
+					               //姓名--刘旋，时间--2-13-3-21
+									int middle_num=0;
+									middle_num=Main.RealListNum%8;
+									switch(middle_num)
+									{
+									case 1:
+										Main.ProgEDITCusor=175f;
+										break;
+									case 2:
+										Main.ProgEDITCusor=195f;
+										break;
+									case 3:
+										Main.ProgEDITCusor=215f;
+										break;
+									case 4:
+										Main.ProgEDITCusor=235f;
+										break;
+									case 5:
+										Main.ProgEDITCusor=255f;
+										break;
+									case 6:
+										Main.ProgEDITCusor=275f;
+										break;
+									case 7:
+										Main.ProgEDITCusor=295f;
+										break;
+									case 0:
+										Main.ProgEDITCusor=315f;
+										break;
+											
+									}
 									Main.ProgEDITAt=true;
-									int finalnum=Main.RealListNum+8;
+									int currentpage=(Main.RealListNum-1)/8;
+									int startnum=currentpage*8+1;
+									int finalnum=currentpage*8+8;
+									//增加内容到此
 									if(finalnum >Main.TotalListNum)
 										finalnum=Main.TotalListNum;
 									string[] InputNameArray = new string[8];
@@ -2560,7 +2593,7 @@ public class MDIEditModule : MonoBehaviour {
 								      InputDateArray[i] = "";
 							        }
 							        int MiddleNum = -1;
-							        for(int i = Main.RealListNum; i < finalnum ; i++)
+							        for(int i = startnum; i < finalnum+1 ; i++)
 							        {
 								       MiddleNum++;
 								       InputNameArray[MiddleNum] = Main.FileNameList[i-1];	
@@ -2603,11 +2636,13 @@ public class MDIEditModule : MonoBehaviour {
 							}	
 								
 							else
-						{//内容--MDI键盘输入“O”，再按下“向下”按钮，直接打开下一个程序,姓名--刘旋,时间--2013-3-20
-							if (Main.RealListNum<Main.TotalListNum)
-								Main.RealListNum++;
-							
-						
+						    {//内容--MDI键盘输入“O”，再按下“向下”按钮，直接打开下一个程序,姓名--刘旋,时间--2013-3-20
+							        if (Main.RealListNum<Main.TotalListNum)
+								         Main.RealListNum++;
+								    else if (Main.RealListNum==Main.TotalListNum)
+							             Main.RealListNum=1;
+						            Main.ProgEDITAt=true;
+								    Main.ProgEDITFlip=1;
 									Main.ProgramNum = Convert.ToInt32(Main.FileNameList[Main.RealListNum - 1].Trim('O'));
 									Main.current_filenum = Main.RealListNum;
 									Main.current_filename = Main.FileNameList[Main.RealListNum - 1].ToString();
@@ -2649,21 +2684,16 @@ public class MDIEditModule : MonoBehaviour {
 							        Main.InputText="";
 						            Main.ProgEDITCusorPos = 57f;	
 							
-								}//增加内容到此
-								
-						}	
-						
+								}
+						}
 					}
-					
-						
-						
-					}//增加内容到此
-					
-					
-					
-				}	
+				}
 			}
-		}
+		}//增加内容到此
+								
+							
+						
+					
 		
 		if(Main.SettingMenu)
 		{

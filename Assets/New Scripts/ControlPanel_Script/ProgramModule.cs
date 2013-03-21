@@ -200,9 +200,9 @@ public class ProgramModule : MonoBehaviour {
 		GUI.Label(new Rect(400f/1000f*Main.width,153f/1000f*Main.height,490f/1000f*Main.width,65f/1000f*Main.height),"更新时间", Main.sty_MostWords);
 		
 		
-		
-		if(Main.CodeName01 != "")
-			GUI.Label(new Rect(48f/1000f*Main.width, Main.ProgEDITCusor/1000f*Main.height,484f/1000f*Main.width,21f/1000f*Main.height),"", Main.sty_EDITCursor);
+		//去掉黄色选择图标，姓名--刘旋，时间--2013-3-21
+		//if(Main.CodeName01 != "")
+			//GUI.Label(new Rect(48f/1000f*Main.width, Main.ProgEDITCusor/1000f*Main.height,484f/1000f*Main.width,21f/1000f*Main.height),"", Main.sty_EDITCursor);
 		
 		//内容--如果对程序进行选择，在被选程序前加@
 		//姓名--刘旋
