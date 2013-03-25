@@ -200,6 +200,9 @@ public class ControlPanel : MonoBehaviour {
 	public bool ProgEDITList = false;
 	public int ProgEDITFlip = 0;
 	public int ProgSharedFlip = 0;
+	//内容--定义变量ProgAUTOFlip，用于控制AUTO模式下屏幕的显示
+	//姓名--刘旋，时间--2013-3-25
+	public int ProgAUTOFlip=0;
 	public int ProgSharedView = 0;
 	public int ProgUsedNum = 0;
 	public int ProgUnusedNum = 400;
@@ -397,7 +400,7 @@ public class ControlPanel : MonoBehaviour {
 			break;
 		case 3:
 			t2d_ModeSelect = t2d_ModeSelectAUTO;
-			MenuDisplay = "AUTO";
+			MenuDisplay = "MEM";//内容--将AUTO修改为MEM，姓名--刘旋，时间--2013-3-25
 			ProgEDIT = false;
 			ProgDNC = false;
 			ProgAUTO = true;
