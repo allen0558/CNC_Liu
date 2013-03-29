@@ -432,6 +432,34 @@ public class ProgramModule : MonoBehaviour {
 			GUI.Label(new Rect(291f/1000f*Main.width,60f/1000f*Main.height,249f/1000f*Main.width,25f/1000f*Main.height),"", Main.sty_TopLabel);
 			GUI.Label(new Rect(130f/1000f*Main.width,58f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height),"当前段", Main.sty_Title);
 			GUI.Label(new Rect(386f/1000f*Main.width,58f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height),"模态", Main.sty_Title);
+			
+			GUI.Label(new Rect(42f/1000f*Main.width,88f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G00", Main.sty_Code);
+		    GUI.Label(new Rect(42f/1000f*Main.width,113f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G90", Main.sty_Code);
+			GUI.Label(new Rect(108f/1000f*Main.width,88f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height),"X", Main.sty_SmallXYZ);
+		    GUI.Label(new Rect(128f/1000f*Main.width,88f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), Main.CooStringGet(CooSystem_script.absolute_pos.x), Main.sty_SmallNum);
+		    GUI.Label(new Rect(108f/1000f*Main.width,113f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height),"Y", Main.sty_SmallXYZ);
+		    GUI.Label(new Rect(128f/1000f*Main.width,113f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), Main.CooStringGet(CooSystem_script.absolute_pos.y), Main.sty_SmallNum);
+		    GUI.Label(new Rect(108f/1000f*Main.width,138f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height),"Z", Main.sty_SmallXYZ);
+		    GUI.Label(new Rect(128f/1000f*Main.width,138f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), Main.CooStringGet(CooSystem_script.absolute_pos.z), Main.sty_SmallNum);
+			
+			GUI.Label(new Rect(292f/1000f*Main.width,88f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G00   G97", Main.sty_Code);
+		    GUI.Label(new Rect(292f/1000f*Main.width,113f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G17   G54", Main.sty_Code);
+		    GUI.Label(new Rect(292f/1000f*Main.width,138f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G90   G64", Main.sty_Code);
+		    GUI.Label(new Rect(292f/1000f*Main.width,163f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G22   G69", Main.sty_Code);	
+			GUI.Label(new Rect(292f/1000f*Main.width,188f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G94   G15", Main.sty_Code);
+		    GUI.Label(new Rect(292f/1000f*Main.width,213f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G21   G40.1", Main.sty_Code);
+		    GUI.Label(new Rect(292f/1000f*Main.width,238f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G40   G25", Main.sty_Code);
+		    GUI.Label(new Rect(292f/1000f*Main.width,263f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G98   G50.1", Main.sty_Code);	
+			GUI.Label(new Rect(292f/1000f*Main.width,288f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G50   G54.2", Main.sty_Code);
+		    GUI.Label(new Rect(292f/1000f*Main.width,313f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "G67   G80.5", Main.sty_Code);
+			
+			GUI.Label(new Rect(446f/1000f*Main.width,88f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "F", Main.sty_Mode);
+		    GUI.Label(new Rect(446f/1000f*Main.width,113f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "M", Main.sty_Mode);
+			GUI.Label(new Rect(446f/1000f*Main.width,188f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "H", Main.sty_Mode);
+			GUI.Label(new Rect(446f/1000f*Main.width,238f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "T", Main.sty_Mode);
+		    GUI.Label(new Rect(446f/1000f*Main.width,263f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "S", Main.sty_Mode);
+			GUI.Label(new Rect(496f/1000f*Main.width,188f/1000f*Main.height,500f/1000f*Main.width,300f/1000f*Main.height), "D", Main.sty_Mode);
+			
 			Main.sty_BottomButton_1.normal.background = Main.t2d_BottomButton_u;
 		    Main.sty_BottomButton_2.normal.background = Main.t2d_BottomButton_u;	
 		    Main.sty_BottomButton_3.normal.background = Main.t2d_BottomButton_d;
