@@ -1,5 +1,8 @@
 using UnityEngine;
+using System;
 using System.Collections;
+using System.IO;
+using System.Collections.Generic;
 
 public class MoveControl : MonoBehaviour {
 	
@@ -23,6 +26,7 @@ public class MoveControl : MonoBehaviour {
 	public bool y_n = false;
 	public bool z_p = false;
 	public bool z_n = false;
+	public float move_flag=0;
 	
 	bool move_sound_on = false;
 	int sound_stop = 3;
@@ -49,6 +53,10 @@ public class MoveControl : MonoBehaviour {
 	void Update () {
 		sound_stop = 0;
 		
+		if(x_n||x_p||y_n||y_p||z_n||z_p)
+			ControlPanel_Script.RunningSpeed=Convert.ToInt32(speed_to_move*move_rate*1000f*60f);
+		//else
+			//ControlPanel_Script.RunningSpeed=0;
 		if(x_p)
 			X_part.Translate(0,0,speed_to_move*Time.deltaTime*move_rate);
 		
@@ -66,12 +74,12 @@ public class MoveControl : MonoBehaviour {
 		
 		if(z_n)
 			Z_part.Translate(0,-speed_to_move*Time.deltaTime*move_rate,0);
-		
 		if(MachineZero.z - X_part.position.z <= 0)
 		{
 			X_part.position = new Vector3(X_part.position.x, X_part.position.y, MachineZero.z);
 			MachineCoo.x = 800f;
 			x_p = false;
+			//move_flag=false;
 		}
 		else
 			MachineCoo.x = 800f-(MachineZero.z - X_part.position.z)*1000;
