@@ -53,10 +53,6 @@ public class MoveControl : MonoBehaviour {
 	void Update () {
 		sound_stop = 0;
 		
-		if(x_n||x_p||y_n||y_p||z_n||z_p)
-			ControlPanel_Script.RunningSpeed=Convert.ToInt32(speed_to_move*move_rate*1000f*60f);
-		//else
-			//ControlPanel_Script.RunningSpeed=0;
 		if(x_p)
 			X_part.Translate(0,0,speed_to_move*Time.deltaTime*move_rate);
 		
@@ -105,6 +101,7 @@ public class MoveControl : MonoBehaviour {
 		{
 			Y_part.position = new Vector3(MachineZero.x + 0.5f, Y_part.position.y, Y_part.position.z);
 			MachineCoo.y = 0f;
+			y_n=false;
 		}
 		else
 			MachineCoo.y = 500f-(Y_part.position.x - MachineZero.x)*1000;

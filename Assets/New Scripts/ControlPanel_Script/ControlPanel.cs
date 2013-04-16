@@ -877,7 +877,8 @@ public class ControlPanel : MonoBehaviour {
 			ScreenBottom();
 			
 			//打印编辑区域
-			ScreenPrintArea();	
+			ScreenPrintArea();
+			SpeedModule();//内容--增加行数SpeedModule用于控制时速度，姓名--刘旋，时间--2013-4-16
 		}
 		
 		//以上部分为屏幕显示区域，所有有关屏幕GUI效果的变化都通过上述函数增添和编辑
@@ -1014,6 +1015,13 @@ public class ControlPanel : MonoBehaviour {
 
 		GUI.DragWindow();    
 	}
+	void SpeedModule()//内容--增加行数SpeedModule用于控制时速度，姓名--刘旋，时间--2013-4-16
+		{
+		    if(MoveControl_script.x_p||MoveControl_script.x_n||MoveControl_script.y_p||MoveControl_script.y_n||MoveControl_script.z_p||MoveControl_script.z_n)
+			    RunningSpeed=Convert.ToInt32(MoveControl_script.speed_to_move*MoveControl_script.move_rate*1000*60);
+		    else 
+			    RunningSpeed=0;	
+		}
 	
 	void ScreenNormallyOn() {
 		
@@ -1284,7 +1292,7 @@ public class ControlPanel : MonoBehaviour {
 						MoveControl_script.move_rate = move_rate;
 					}
 					if(MoveControl_script.Y_part.position.x - MoveControl_script.MachineZero.x >= 0.5f)
-						MoveControl_script.y_n = false;
+					    MoveControl_script.y_n = false;
 					else
 						MoveControl_script.y_n = true;
 				}
